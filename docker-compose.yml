@@ -1,33 +1,31 @@
 services:
   backend:
-    build:
-      context: ./backend
-    image: garderie-backend:local
+    image: firaskhdhir/garderie-backend:latest
+    container_name: garderie-backend
+    restart: unless-stopped
     environment:
       NODE_ENV: production
       PORT: "4000"
     ports:
-      - "4002:4000"
+      - "4000:4000"
     networks:
       - garderie-net
-    restart: unless-stopped
 
   frontend:
-    build:
-      context: ./frontend
-    image: garderie-frontend:local
+    image: firaskhdhir/garderie-frontend:latest
+    container_name: garderie-frontend
+    restart: unless-stopped
     environment:
       NODE_ENV: production
       HOSTNAME: "0.0.0.0"
       PORT: "3000"
       API_URL: "http://backend:4000"
     ports:
-      - "3006:3000"
+      - "3000:3000"
     depends_on:
       - backend
     networks:
       - garderie-net
-    restart: unless-stopped
 
 networks:
   garderie-net:
