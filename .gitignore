@@ -7,3 +7,5 @@
 *.log
 *.backup*
 .DS_Store
+
+.vagrant/
