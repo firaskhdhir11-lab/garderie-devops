@@ -1,9 +1,6 @@
 pipeline {
     agent any
 
-    options {
-        timestamps()
-    }
 
     environment {
         FRONTEND_IMAGE = 'firaskhdhir/garderie-frontend'
